@@ -13,6 +13,7 @@ class Index extends Controller
         'msg'=>''
     ];
     public function index(){
+         exec('python /home/code/spider.py');
         if($this->request->isAjax()){
             $data_dyj = Db::name('lottery_phoenix_tree')->order('id','desc')->limit(1)->select();
             $data_ssq = Db::name('lottery_phoenix_tree_ssq')->order('id','open_time')->limit(1)->select();
