@@ -1,0 +1,41 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: john
+ * Date: 2018/11/15
+ * Time: 22:24
+ */
+?>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $(function () {
+        $.ajax({
+            url:"http://www.space.com/ThinkPHP5/public/index.php/admin/Index/index",
+            dataType:'json',
+            data:{},
+            type:'post',
+            success:function (data) {
+                if(data.code == 200){
+                    $('#list_dyj').append(data.data_dyj);
+                    $('#list_ssq').append(data.data_ssq.content);
+                }else{
+                    $('#list_dyj').append("数据获取失败");
+                    $('#list_ssq').append("数据获取失败");
+                }
+            }
+        });
+    });
+</script>
+<style>
+    i{
+        padding-left: 20px;
+        display: inline-block;
+    }
+    .blue{
+        background-color: blue;
+    }
+</style>
+<h2>十一夺运金爬取结果</h2>
+<table id="list_dyj"></table>
+<h2>双色球爬取结果</h2>
+<div id="list_ssq"></div>
