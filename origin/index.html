@@ -1,0 +1,38 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: john
+ * Date: 2018/11/15
+ * Time: 22:24
+ */
+?>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script>
+    $(function () {
+        $.ajax({
+            url:"http://maxh5.com:8800/public/index.php/admin/index/data",
+            dataType: "jsonp",
+            data:{},
+            jsonp:"callback",
+            type:'get',
+            success:function (data) {
+                console.log(data);
+            }
+        });
+    });
+</script>
+
+<style>
+    i{
+        padding-left: 20px;
+        display: inline-block;
+    }
+    .blue{
+        background-color: blue;
+    }
+</style>
+<h2>十一夺运金爬取结果</h2>
+<table id="list_dyj"></table>
+<h2>双色球爬取结果</h2>
+<div id="list_ssq"></div>
