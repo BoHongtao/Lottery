@@ -6,7 +6,11 @@
 	4.centos 6+
 ## 配置 ##
 spider.py放到/home/code下；
+
 配置好web（基于ThinkPHP5.1）站点，启动nginx or apache
+
 访问域名/public/index.php，可实现实时抓取显示；
+
 linux下部署定时任务，每10min启动一次爬虫脚本
+
 列表从数据库中读取500条数据
