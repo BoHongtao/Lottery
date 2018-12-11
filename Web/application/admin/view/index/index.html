@@ -7,38 +7,18 @@
  */
 ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+
 <script>
     $(function () {
-         $('#msg').append("python正在爬取请稍后");
-         		 $.ajax({
-                    url:"http://maxh5.com:8800/public/index.php/admin/index/index",
-                    dataType:'json',
-                    data:{},
-                    type:'post',
-                    success:function (data) {
-                        if(data.code == 200){
-                             $('#msg').remove();
-                            $('#list_dyj').append(data.data_dyj);
-                            $('#list_ssq').append(data.data_ssq.content);
-                        }else{
-                            $('#list_dyj').append("数据获取失败");
-                            $('#list_ssq').append("数据获取失败");
-                        }
-                    }
-            	});
+        $.ajax({
+            url:"http://你的域名/public/index.php/admin/index/dyj",
+            dataType: "jsonp",
+            data:{},
+            jsonp:"callback",
+            type:'get',
+            success:function (data) {
+                console.log(data);
+            }
+        });
     });
 </script>
-<style>
-    i{
-        padding-left: 20px;
-        display: inline-block;
-    }
-    .blue{
-        background-color: blue;
-    }
-</style>
-<h1 id='msg'></h1>
-<h2>十一夺运金爬取结果</h2>
-<table id="list_dyj"></table>
-<h2>双色球爬取结果</h2>
-<div id="list_ssq"></div>
